@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import AlbumListItem from "./AlbumListItem";
+import AlbumDisplay from "./AlbumDisplay";
+import albums from "./data";
 
 function App() {
+
+  const [displayAlbum, setDisplayAlbum] = useState(0);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <AlbumDisplay id={displayAlbum} />
+
+      <h3>Select an Album</h3>
+      <ul style={{padding:"0"}}>
+        { 
+          albums.map((album) => (
+              <AlbumListItem 
+              onShow={ () => setDisplayAlbum(album.id)}
+              id={album.id}
+              key={album.id}
+              />
+        ))}
+      </ul>
+      
     </div>
   );
 }
