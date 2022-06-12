@@ -12,15 +12,17 @@ function App() {
       <AlbumDisplay id={displayAlbum} />
 
       <h3>Select an Album</h3>
+
       <ul style={{padding:"0"}}>
         { 
           albums.map((album) => (
               <AlbumListItem 
-              onShow={ () => setDisplayAlbum(album.id)}
-              id={album.id}
-              key={album.id}
+                onShow={ () => setDisplayAlbum(album.id)}
+                id={album.id}
+                key={album.id}
               />
-        ))}
+          ))
+        }
       </ul>
       
     </div>

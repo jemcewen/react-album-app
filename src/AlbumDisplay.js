@@ -1,5 +1,5 @@
-import albums from "./data";
 import Track from "./Track";
+import albums from "./data";
 
 export default function AlbumDisplay (props) {
 
